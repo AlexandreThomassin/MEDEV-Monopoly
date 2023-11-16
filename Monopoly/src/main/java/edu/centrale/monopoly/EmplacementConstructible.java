@@ -75,7 +75,13 @@ public class EmplacementConstructible extends Achetable {
     
         
     public int calculLoyer(){
-        
+        if(this.getProprietaire().getNom() == "Banque"){
+            this.setLoyer(0);    
+        }
+        else{
+            int h =this.getNiveau_constr();
+            this.setLoyer(1000* h+1000);
+        }
     }
     
     

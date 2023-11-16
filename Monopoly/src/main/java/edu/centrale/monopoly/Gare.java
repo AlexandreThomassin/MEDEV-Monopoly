@@ -26,12 +26,13 @@ public class Gare extends Achetable {
     }
     
         
-    public void calculLoyer(){
+    public void calculLoyer(Plateau p){
         if(this.getProprietaire().getNom() == "Banque"){
             this.setLoyer(0);    
         }
         else{
-            this.setLoyer(0);
+            int h =p.nbGares(this.getProprietaire());
+            this.setLoyer(2500* h);
         }
         
     }
