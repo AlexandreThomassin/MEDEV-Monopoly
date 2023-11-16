@@ -60,14 +60,14 @@ public class EmplacementConstructible extends Achetable {
         @Override
     public String toString() {
         if(this.getProprietaire().getNom() == "Banque"){
-            return nom + " (coût : " + prix + " €) - propriétaire : Aucun"; 
+            return this.getNom() + " (coût : " + this.getPrix() + " €) - propriétaire : Aucun"; 
         }
         else {
             if(this.niveau_constr == 4){
-                return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom() + " - 1 Hôtel - Loyer : " + this.getLoyer()+ "€";    
+                return this.getNom() + " (coût : " + this.getPrix() + " €) - propriétaire : " + this.getProprietaire().getNom() + " - 1 Hôtel - Loyer : " + this.getLoyer()+ "€";    
             }
             else{
-                return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom() + " - "+this.getNiveau_constr()+" maison(s) - Loyer : " + this.getLoyer()+ "€";
+                return this.getNom() + " (coût : " + this.getPrix() + " €) - propriétaire : " + this.getProprietaire().getNom() + " - "+this.getNiveau_constr()+" maison(s) - Loyer : " + this.getLoyer()+ "€";
             }
         }
     }
