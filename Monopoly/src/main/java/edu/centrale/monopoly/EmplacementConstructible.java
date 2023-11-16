@@ -40,5 +40,22 @@ public class EmplacementConstructible extends Achetable {
     public void construire(){
         
     }
+
+    public int getNiveau_constr() {
+        return niveau_constr;
+    }
+
+    public void setNiveau_constr(int niveau_constr) {
+        this.niveau_constr = niveau_constr;
+    }
+
+    public int getPrix_constr() {
+        return prix_constr;
+    }
+
+    public void setPrix_constr(int prix_constr) {
+        this.prix_constr = prix_constr;
+    }
+    
     
 }
