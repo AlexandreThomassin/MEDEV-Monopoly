@@ -150,6 +150,7 @@ public abstract class Plateau {
                     // sinon pas achetable (pair)
                 }
                 else{
+
                     //C'est vous le proprietaire
                     System.out.println("tu es chez toi");
                 }
