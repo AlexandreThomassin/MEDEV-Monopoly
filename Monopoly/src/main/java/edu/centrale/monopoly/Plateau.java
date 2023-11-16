@@ -21,6 +21,11 @@ public abstract class Plateau {
         }
         return nbGares;
     }
+    public void affiche(){
+        for(int i=0;i<cases.size();i++){
+            cases.get(i).toString();
+        }
+    }
 
 
     @Override
