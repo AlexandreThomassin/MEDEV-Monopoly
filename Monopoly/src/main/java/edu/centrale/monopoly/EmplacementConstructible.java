@@ -9,5 +9,66 @@ package edu.centrale.monopoly;
  * @author mattb
  */
 public class EmplacementConstructible extends Achetable {
+
+    //Constructions sur la case (0 = rien, 1 = une maison, 4 = un hôtel)
     
+    private int niveau_constr;
+    
+    private int prix_constr;
+        
+    public EmplacementConstructible(String nom, int loyer, int prix, int niveau_constr, int prix_constr) {
+        super(nom, loyer, prix);
+        this.niveau_constr = niveau_constr;
+        this.prix_constr = prix_constr;
+        
+    }
+
+    public EmplacementConstructible(EmplacementConstructible a) {
+        super(a);
+        this.niveau_constr=a.niveau_constr;
+        this.prix_constr=a.prix_constr;
+        
+    }
+
+    public EmplacementConstructible() {
+        super("Emplacement_sans_nom",1,1);
+        this.prix_constr = 1;
+        this.niveau_constr = 1;
+    }
+    
+    //Methode de contruction sur la case
+    public void construire(){
+        
+    }
+
+    public int getNiveau_constr() {
+        return niveau_constr;
+    }
+
+    public void setNiveau_constr(int niveau_constr) {
+        this.niveau_constr = niveau_constr;
+    }
+
+    public int getPrix_constr() {
+        return prix_constr;
+    }
+
+    public void setPrix_constr(int prix_constr) {
+        this.prix_constr = prix_constr;
+    }
+    
+        @Override
+    public String toString() {
+        if(this.getProprietaire().getNom() == "Banque"){
+            return nom + " (coût : " + prix + " €) - propriétaire : Aucun"; 
+        }
+        else {
+            if(this.niveau_constr == 4){
+                return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom() + " - 1 Hôtel - Loyer : " + this.getLoyer()+ "€";    
+            }
+            else{
+                return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom() + " - "+this.getNiveau_constr()+" maison(s) - Loyer : " + this.getLoyer()+ "€";
+            }
+        }
+    }
 }

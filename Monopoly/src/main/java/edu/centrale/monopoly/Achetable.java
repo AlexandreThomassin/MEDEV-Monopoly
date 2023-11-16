@@ -79,5 +79,17 @@ public abstract class Achetable extends Case {
     public void acheter(Joueur p){
         
     }
+
+    @Override
+    public String toString() {
+        if(this.getProprietaire().getNom() == "Banque"){
+            return nom + " (coût : " + prix + " €) - propriétaire : Aucun"; 
+        }
+        else {
+            return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom();
+        }
+    }
+    
+    
     
 }
