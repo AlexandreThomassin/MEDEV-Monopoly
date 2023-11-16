@@ -150,6 +150,7 @@ public abstract class Plateau {
                 else{
                     //Verifier si c'est vous le proprietaire
                     if(nouveauCase.getProprietaire() != this.joueurs.get(i)){
+                        nouveauCase.calculLoyer(this);
                         // paiement au proprietaire
                         if(this.joueurs.get(i).getArgent()<nouveauCase.getLoyer(){
                             this.joueurs.get(i).paiement(nouveauCase.getProprietaire(),this.joueurs.get(i).getArgent());
