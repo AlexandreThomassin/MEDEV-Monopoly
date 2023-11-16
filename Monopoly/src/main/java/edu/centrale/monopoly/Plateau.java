@@ -9,7 +9,7 @@ public abstract class Plateau {
 
     public void initPlateau(){
         this.cases = new ArrayList<Case>(40);
-        cases.add(new Case(0));
+        cases.add(new Autre(0));
         cases.add(new EmplacementConstructible(0, 0, "MEDITERRANEAN AVENUE", 0, 60, new Joueur(), 1));
         cases.add(new Chance("COMMUNITY CHEST",2));
         cases.add(new EmplacementConstructible(0, 0, "BALTIC AVENUE", 0, 60, new Joueur(), 3));
@@ -23,8 +23,13 @@ public abstract class Plateau {
         cases.add(new EmplacementConstructible(0, 0, "ST. CHARLES PLACE", 0, 140, new Joueur(), 11));
         cases.add(new EmplacementConstructible(0, 0, "ELECTRIC COMPANY", 0, 150, new Joueur(), 12));
         cases.add(new EmplacementConstructible(0, 0, "STATES AVENUE", 0, 140, new Joueur(), 13));
-        cases.add(new EmplacementConstructible(0, 0, "VIRGINIA AVENUE", 0, 140, new Joueur(), 13));
-        cases.add(new Gare("PENSYLVANNIA RAILROAD", 0, 200, new Joueur(), 14));
+        cases.add(new EmplacementConstructible(0, 0, "VIRGINIA AVENUE", 0, 140, new Joueur(), 14));
+        cases.add(new Gare("PENSYLVANNIA RAILROAD", 0, 200, new Joueur(), 15));
+        cases.add(new EmplacementConstructible(0, 0, "ST. JAMES PLACE", 0, 160, new Joueur(), 16));
+        cases.add(new Chance("COMMUNITY CHEST",17));
+        cases.add(new EmplacementConstructible(0, 0, "TENNESSEE AVENUE", 0, 180, new Joueur(), 18));
+        cases.add(new EmplacementConstructible(0, 0, "NEW YORK AVENUE", 0, 190, new Joueur(), 19));
+        cases.add(new Autre("FREE PARKING", 20));
     }
     public int nbGares(Joueur joueur){
         int nbGares=0;
@@ -43,7 +48,22 @@ public abstract class Plateau {
             cases.get(i).toString();
         }
     }
-
+    
+    /* Methode pour avancer
+     * @param c case de entree
+     * @param d le nombre de cases a avancer
+     */
+    public Case avance(Case c,int d){
+        // Pas de tour
+     if(this.cases.indexOf(c)+d<this.cases.size()){
+         return this.cases.get(this.cases.indexOf(c)+d);
+     }
+     else{
+         //Si ça fait un tour
+         int i = this.cases.size() - this.cases.indexOf(c)-1;
+         return this.cases.get(d-i);
+     }
+    }
 
     @Override
     public String toString() {
