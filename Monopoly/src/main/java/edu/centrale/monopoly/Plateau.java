@@ -26,7 +26,7 @@ public abstract class Plateau {
 
     public void initPlateau(){
         this.cases = new ArrayList<Case>(40);
-        this.joueurs = new ArrayList<Joueur>(4);
+        this.joueurs = new LinkedList<Joueur>();
 
 
         cases.add(new Depart(0));
@@ -130,15 +130,17 @@ public abstract class Plateau {
             this.joueurs.get(i).setPosition(nouveauCase.getId());
             System.out.println("Le joueur "+this.joueurs.get(i).getNom()+" est en "+this.joueurs.get(i).getPosition());
             if(nouveauCase instanceof Achetable){
-                if(nouveauCase.getProprietaire != null){
+                Achetable achetableCase = (Achetable) nouveauCase;
+                if(achetableCase.getProprietaire().getNom() != "Banque"){
                     if(casesDeplace%2 != 0) { // impar peut acheter
                         System.out.println("vous voulez acheter cet espace? Y/N");
                         Scanner scan = new Scanner(System.in); // Demande si veut acheter
                         String reponseAcheter = scan.nextLine();
                         //verifie si veux acheter
-                        if(reponseAcheter.equals("Y"||"y")) {
+                        if(reponseAcheter.equals("Y")||reponseAcheter.equals("y")) {
                             //verifie s'il y a d'argent
-                            if(this.joueurs.get(i).getArgent() >= nouveauCase.getPrix()){
+                            if(this.joueurs.get(i).getArgent() >= achetableCase.getPrix()){
+                                //Acheter non implémenté
                                 nouveauCase.acheter(this.joueurs.get(i));
                             } else {
                                 System.out.println("vous n'avez pas assez d'argent");
@@ -148,18 +150,7 @@ public abstract class Plateau {
                     // sinon pas achetable (pair)
                 }
                 else{
-                    //Verifier si c'est vous le proprietaire
-                    if(nouveauCase.getProprietaire() != this.joueurs.get(i)){
-                        // paiement au proprietaire
-                        if(this.joueurs.get(i).getArgent()<nouveauCase.getLoyer(){
-                            this.joueurs.get(i).paiement(nouveauCase.getProprietaire(),this.joueurs.get(i).getArgent());
-                            System.out.println("fin de jeu pour "+this.joueurs.get(i).getNom());
-                            this.joueurs.remove(i);
-                        } else{
-                            System.out.println(nouveauCase.getLoyer()+"payé pour le proprietaire");
-                            this.joueurs.get(i).paiement(nouveauCase.getProprietaire(), nouveauCase.getLoyer());
-                        }
-                    }
+                    //C'est vous le proprietaire
                     System.out.println("tu es chez toi");
                 }
             } else {
