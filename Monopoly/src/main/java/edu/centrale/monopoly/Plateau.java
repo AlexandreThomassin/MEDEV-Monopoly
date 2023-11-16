@@ -71,13 +71,13 @@ public abstract class Plateau {
         cases.add(new EmplacementConstructible(0, 0, "BOARD WALK", 0, 400, new Joueur(), 39));
 
         joueurs.add(new Joueur(this));
-        joueur.get(0).setNom("Joueur 1");
+        joueurs.get(0).setNom("Joueur 1");
         joueurs.add(new Joueur(this));
-        joueur.get(1).setNom("Joueur 2");
+        joueurs.get(1).setNom("Joueur 2");
         joueurs.add(new Joueur(this));
-        joueur.get(2).setNom("Joueur 3");
+        joueurs.get(2).setNom("Joueur 3");
         joueurs.add(new Joueur(this));
-        joueur.get(3).setNom("Joueur 4");
+        joueurs.get(3).setNom("Joueur 4");
         
 
 
