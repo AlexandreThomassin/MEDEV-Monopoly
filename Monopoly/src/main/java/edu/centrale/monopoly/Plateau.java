@@ -47,7 +47,22 @@ public abstract class Plateau {
             cases.get(i).toString();
         }
     }
-
+    
+    /* Methode pour avancer
+     * @param c case de entree
+     * @param d le nombre de cases a avancer
+     */
+    public Case avance(Case c,int d){
+        // Pas de tour
+     if(this.cases.indexOf(c)+d<this.cases.size()){
+         return this.cases.get(this.cases.indexOf(c)+d);
+     }
+     else{
+         //Si ça fait un tour
+         int i = this.cases.size() - this.cases.indexOf(c)-1;
+         return this.cases.get(d-i);
+     }
+    }
 
     @Override
     public String toString() {
