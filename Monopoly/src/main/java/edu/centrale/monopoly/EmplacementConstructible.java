@@ -16,7 +16,7 @@ public class EmplacementConstructible extends Achetable {
     
     private int prix_constr;
         
-    public EmplacementConstructible( int niveau_constr, int prix_constrString,int nom, int loyer, int prix, Joueur j, int id) {
+    public EmplacementConstructible( int niveau_constr, int prix_constrString,String nom, int loyer, int prix, Joueur j, int id) {
         super(nom, loyer, prix,j, id);
         this.niveau_constr = niveau_constr;
         this.prix_constr = prix_constr;
@@ -31,8 +31,7 @@ public class EmplacementConstructible extends Achetable {
     }
 
     public EmplacementConstructible() {
-        Joueur j = new Joueur();
-        super("Emplacement_sans_nom",1,1,0,j);
+        super("Emplacement_sans_nom",1,1,new Joueur(),0);
         this.prix_constr = 1;
         this.niveau_constr = 1;
     }
@@ -75,7 +74,7 @@ public class EmplacementConstructible extends Achetable {
     }
     
         
-    public int calculLoyer(){
+    public void calculLoyer(){
         if(this.getProprietaire().getNom() == "Banque"){
             this.setLoyer(0);    
         }

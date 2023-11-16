@@ -13,8 +13,8 @@ import java.util.Set;
  */
 public class Gare extends Achetable {
 
-    public Gare(String nom, int loyer, int prix, int id) {
-        super(nom, loyer, prix, id);
+    public Gare(String nom, int loyer, int prix, Joueur j, int id) {
+        super(nom, loyer, prix,j, id);
     }
 
     public Gare(Achetable a) {
@@ -22,7 +22,7 @@ public class Gare extends Achetable {
     }
 
     public Gare() {
-        super("Gare_sans_nom",1,1, -1);
+        super("Gare_sans_nom",1,1,new Joueur(), -1);
     }
     
         
