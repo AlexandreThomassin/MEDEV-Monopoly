@@ -25,6 +25,9 @@ public abstract class Plateau {
 
     public void initPlateau(){
         this.cases = new ArrayList<Case>(40);
+        this.joueurs = new ArrayList<Joueur>(4);
+
+
         cases.add(new Depart(0));
         cases.add(new EmplacementConstructible(0, 0, "MEDITERRANEAN AVENUE", 0, 60, new Joueur(), 1));
         cases.add(new Chest(2));
@@ -66,6 +69,17 @@ public abstract class Plateau {
         cases.add(new Tax(35,38));
         cases.add(new EmplacementConstructible(0, 0, "BOARD WALK", 0, 400, new Joueur(), 39));
 
+        joueurs.add(new Joueur(this));
+        joueur.get(0).setNom("Joueur 1");
+        joueurs.add(new Joueur(this));
+        joueur.get(1).setNom("Joueur 2");
+        joueurs.add(new Joueur(this));
+        joueur.get(2).setNom("Joueur 3");
+        joueurs.add(new Joueur(this));
+        joueur.get(3).setNom("Joueur 4");
+        
+
+
 
 
 
@@ -103,7 +117,7 @@ public abstract class Plateau {
      }
     }
     
-    public boolean findePertie(){
+    public boolean findePartie(){
 
        for(int i=0;i<this.cases.size();i++){
             if(this.cases.get(i) instanceof Achetable){
