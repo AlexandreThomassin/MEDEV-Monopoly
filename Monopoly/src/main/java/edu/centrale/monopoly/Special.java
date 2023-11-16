@@ -13,8 +13,8 @@ import java.util.Set;
  */
 public class Special extends Achetable {
 
-    public Special(String nom, int loyer, int prix, int id) {
-        super(nom, loyer, prix, id);
+    public Special(String nom, int loyer, int prix,Joueur j, int id) {
+        super(nom, loyer, prix,j, id);
     }
 
     public Special(Achetable a) {
@@ -22,8 +22,7 @@ public class Special extends Achetable {
     }
 
     public Special() {
-        Joueur j = new Joueur();
-        super("Special_sans_nom",1,1,j,-1);
+        super("Special_sans_nom",1,1,new Joueur(),-1);
     }
     
         
