@@ -2,7 +2,7 @@ package edu.centrale.monopoly;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-
+/// zakariae
 public abstract class Plateau {
     private LinkedList<Joueur> joueurs;
     private ArrayList<Case> cases;
