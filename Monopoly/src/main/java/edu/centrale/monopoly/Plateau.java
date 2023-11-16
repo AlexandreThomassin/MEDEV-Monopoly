@@ -47,7 +47,7 @@ public abstract class Plateau {
             cases.get(i).toString();
         }
     }
-    
+
     /* Methode pour avancer
      * @param c case de entree
      * @param d le nombre de cases a avancer
@@ -62,6 +62,19 @@ public abstract class Plateau {
          int i = this.cases.size() - this.cases.indexOf(c)-1;
          return this.cases.get(d-i);
      }
+    }
+    
+    public boolean findePertie(){
+
+       for(int i=0;i<this.cases.size();i++){
+            if(this.cases.get(i) instanceof Achetable){
+                if(this.cases.get(i).getProprietaire()==null){
+                    return false;
+                }
+            }
+        }
+        
+       return true;
     }
 
     @Override
