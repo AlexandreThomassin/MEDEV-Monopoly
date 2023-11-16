@@ -6,15 +6,12 @@ package edu.centrale.monopoly;
 
 /**
  *
- * @author USER
+ * @author alex4
  */
-public class Taxe extends Autre{
+public class Chest extends Autre{
 
-    private int taxe;
-    
-    public Taxe(int id, int taxe) {
+    public Chest(int id) {
         super(id);
-        this.taxe = taxe;
     }
     
 }

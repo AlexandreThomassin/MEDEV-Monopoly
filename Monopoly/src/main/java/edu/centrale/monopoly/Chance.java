@@ -12,8 +12,8 @@ public class Chance extends Autre {
     public Chance (int id) {
         super(id);
      }
-    public String tirercartechance(Joueur joueur){
-        if(joueur.position == id){
+    public void tirercartechance(Joueur joueur){
+        if(joueur.getPosition() == getId()){
             System.out.println("Tirez une carte chance");
         }
     }

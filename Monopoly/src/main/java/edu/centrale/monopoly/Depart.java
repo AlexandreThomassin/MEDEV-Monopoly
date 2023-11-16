@@ -8,6 +8,11 @@ package edu.centrale.monopoly;
  *
  * @author ADR001
  */
-public class Depart {
+public class Depart extends Autre {
+
+    public Depart(int id) {
+        super(id);
+    }
+   
     
 }

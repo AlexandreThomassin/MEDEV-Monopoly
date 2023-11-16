@@ -8,6 +8,10 @@ package edu.centrale.monopoly;
  *
  * @author ADR001
  */
-public class Parc {
+public class Parc extends Autre{
+
+    public Parc(int id) {
+        super(id);
+    }
     
 }

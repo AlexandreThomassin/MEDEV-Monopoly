@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 public abstract class Plateau {
-    public LinkedList<Joueur> getJoueurs() {
+    public ArrayList<Joueur> getJoueurs() {
         return joueurs;
     }
 
@@ -13,7 +13,7 @@ public abstract class Plateau {
         return cases;
     }
 
-    public void setJoueurs(LinkedList<Joueur> joueurs) {
+    public void setJoueurs(ArrayList<Joueur> joueurs) {
         this.joueurs = joueurs;
     }
 
@@ -21,7 +21,7 @@ public abstract class Plateau {
         this.cases = cases;
     }
 
-    private LinkedList<Joueur> joueurs;
+    private ArrayList<Joueur> joueurs;
     private ArrayList<Case> cases;
 
     public void initPlateau(){
@@ -33,7 +33,7 @@ public abstract class Plateau {
         cases.add(new EmplacementConstructible(0, 0, "MEDITERRANEAN AVENUE", 0, 60, new Joueur(), 1));
         cases.add(new Chest(2));
         cases.add(new EmplacementConstructible(0, 0, "BALTIC AVENUE", 0, 60, new Joueur(), 3));
-        cases.add(new Tax(200,4));
+        cases.add(new Taxe(200,4));
         cases.add(new Gare("READING RAILROAD", 0, 200, new Joueur(), 5));
         cases.add(new EmplacementConstructible(0, 0, "ORIENTAL AVENUE", 0, 100, new Joueur(), 6));
         cases.add(new Chance(7));
@@ -49,7 +49,7 @@ public abstract class Plateau {
         cases.add(new Chest(17));
         cases.add(new EmplacementConstructible(0, 0, "TENNESSEE AVENUE", 0, 180, new Joueur(), 18));
         cases.add(new EmplacementConstructible(0, 0, "NEW YORK AVENUE", 0, 190, new Joueur(), 19));
-        cases.add(new Parking(20));
+        cases.add(new Parc(20));
         cases.add(new EmplacementConstructible(0, 0, "KENTUCKY AVENUE", 0, 220, new Joueur(), 21));
         cases.add(new Chance(22));
         cases.add(new EmplacementConstructible(0, 0, "INDIANA AVENUE", 0, 220, new Joueur(), 23));
@@ -67,7 +67,7 @@ public abstract class Plateau {
         cases.add(new Gare("SHORT LINE RAILROAD", 0, 200, new Joueur(), 35));
         cases.add(new Chance(36));
         cases.add(new EmplacementConstructible(0, 0, "PARK PLACE", 0, 350, new Joueur(), 37));
-        cases.add(new Tax(35,38));
+        cases.add(new Taxe(35,38));
         cases.add(new EmplacementConstructible(0, 0, "BOARD WALK", 0, 400, new Joueur(), 39));
 
         joueurs.add(new Joueur(this));
@@ -130,6 +130,7 @@ public abstract class Plateau {
             this.joueurs.get(i).setPosition(nouveauCase.getId());
             System.out.println("Le joueur "+this.joueurs.get(i).getNom()+" est en "+this.joueurs.get(i).getPosition());
             if(nouveauCase instanceof Achetable){
+                
                 if(nouveauCase.getProprietaire != null){
                     if(casesDeplace%2 != 0) { // impar peut acheter
                         System.out.println("vous voulez acheter cet espace? Y/N");
