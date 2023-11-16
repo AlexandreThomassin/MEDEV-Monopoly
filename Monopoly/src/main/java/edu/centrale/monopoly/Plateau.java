@@ -4,6 +4,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public abstract class Plateau {
+    public LinkedList<Joueur> getJoueurs() {
+        return joueurs;
+    }
+
+    public ArrayList<Case> getCases() {
+        return cases;
+    }
+
+    public void setJoueurs(LinkedList<Joueur> joueurs) {
+        this.joueurs = joueurs;
+    }
+
+    public void setCases(ArrayList<Case> cases) {
+        this.cases = cases;
+    }
+
     private LinkedList<Joueur> joueurs;
     private ArrayList<Case> cases;
 
