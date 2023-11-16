@@ -16,8 +16,8 @@ public class EmplacementConstructible extends Achetable {
     
     private int prix_constr;
         
-    public EmplacementConstructible(String nom, int loyer, int prix, int niveau_constr, int prix_constr) {
-        super(nom, loyer, prix);
+    public EmplacementConstructible( int niveau_constr, int prix_constrString,int nom, int loyer, int prix, Joueur j, int id) {
+        super(nom, loyer, prix,j, id);
         this.niveau_constr = niveau_constr;
         this.prix_constr = prix_constr;
         
@@ -31,7 +31,8 @@ public class EmplacementConstructible extends Achetable {
     }
 
     public EmplacementConstructible() {
-        super("Emplacement_sans_nom",1,1);
+        Joueur j = new Joueur();
+        super("Emplacement_sans_nom",1,1,0,j);
         this.prix_constr = 1;
         this.niveau_constr = 1;
     }
@@ -60,15 +61,28 @@ public class EmplacementConstructible extends Achetable {
         @Override
     public String toString() {
         if(this.getProprietaire().getNom() == "Banque"){
-            return nom + " (coût : " + prix + " €) - propriétaire : Aucun"; 
+            return this.getNom() + " (coût : " + this.getPrix() + " €) - propriétaire : Aucun"; 
         }
         else {
             if(this.niveau_constr == 4){
-                return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom() + " - 1 Hôtel - Loyer : " + this.getLoyer()+ "€";    
+                return this.getNom() + " (coût : " + this.getPrix() + " €) - propriétaire : " + this.getProprietaire().getNom() + " - 1 Hôtel - Loyer : " + this.getLoyer()+ "€";    
             }
             else{
-                return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom() + " - "+this.getNiveau_constr()+" maison(s) - Loyer : " + this.getLoyer()+ "€";
+                return this.getNom() + " (coût : " + this.getPrix() + " €) - propriétaire : " + this.getProprietaire().getNom() + " - " + this.getNiveau_constr()+" maison(s) - Loyer : " + this.getLoyer()+ "€";
             }
         }
     }
+    
+        
+    public int calculLoyer(){
+        if(this.getProprietaire().getNom() == "Banque"){
+            this.setLoyer(0);    
+        }
+        else{
+            int h =this.getNiveau_constr();
+            this.setLoyer(1000* h+1000);
+        }
+    }
+    
+    
 }
