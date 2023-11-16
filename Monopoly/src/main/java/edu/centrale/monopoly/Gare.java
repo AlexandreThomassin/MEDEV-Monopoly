@@ -9,5 +9,20 @@ package edu.centrale.monopoly;
  * @author mattb
  */
 public class Gare extends Achetable {
+
+    public Gare(String nom, int loyer, int prix) {
+        super(nom, loyer, prix);
+    }
+
+    public Gare(Achetable a) {
+        super(a);
+    }
+
+    public Gare() {
+        super("Gare_sans_nom",1,1);
+    }
+    
+    
+    
     
 }
