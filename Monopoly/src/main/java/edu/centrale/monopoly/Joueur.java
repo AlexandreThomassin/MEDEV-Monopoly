@@ -133,6 +133,16 @@ public class Joueur {
     public void setPlateau(Plateau plateau) {
         this.plateau = plateau;
     }
+
+    @Override
+    public String toString() {
+        String display =  "Joueur : " + nom + " - Fortune :" + argent + "- Case n°" + position ;
+        if(this.prison){
+            display += "- Est en prison";
+        }
+        return display;
+    }
+    
     
     
     // Méthodes 
