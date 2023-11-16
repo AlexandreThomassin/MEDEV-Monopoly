@@ -4,14 +4,17 @@
  */
 package edu.centrale.monopoly;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author mattb
  */
 public class Gare extends Achetable {
 
-    public Gare(String nom, int loyer, int prix) {
-        super(nom, loyer, prix);
+    public Gare(String nom, int loyer, int prix, int id) {
+        super(nom, loyer, prix, id);
     }
 
     public Gare(Achetable a) {
@@ -19,9 +22,19 @@ public class Gare extends Achetable {
     }
 
     public Gare() {
-        super("Gare_sans_nom",1,1);
+        super("Gare_sans_nom",1,1, -1);
     }
     
+        
+    public void calculLoyer(){
+        if(this.getProprietaire().getNom() == "Banque"){
+            this.setLoyer(0);    
+        }
+        else{
+            this.setLoyer(0);
+        }
+        
+    }
     
     
     

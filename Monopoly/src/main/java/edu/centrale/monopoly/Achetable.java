@@ -18,15 +18,17 @@ public abstract class Achetable extends Case {
     
     private Joueur proprietaire;
 
-    public Achetable(String nom, int loyer, int prix) {
+    public Achetable(String nom, int loyer, int prix,Joueur p, int id) {
+        super(id);
         this.nom = nom;
         this.loyer = loyer;
         this.prix = prix;
-        Joueur p = new Joueur();
+
         this.proprietaire = p;
     }
     
     public Achetable(Achetable a) {
+        super(a.getId());
         this.nom = a.nom;
         this.loyer = a.loyer;
         this.prix = a.prix;
@@ -34,6 +36,7 @@ public abstract class Achetable extends Case {
     }
     
     public Achetable() {
+        this.setId(-1);
         this.nom = "Undefined";
         this.loyer = 1;
         this.prix = 1;
@@ -89,7 +92,5 @@ public abstract class Achetable extends Case {
             return nom + " (coût : " + prix + " €) - propriétaire : " + proprietaire.getNom();
         }
     }
-    
-    
     
 }
