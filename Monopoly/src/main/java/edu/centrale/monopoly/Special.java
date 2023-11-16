@@ -11,30 +11,24 @@ import java.util.Set;
  *
  * @author mattb
  */
-public class Gare extends Achetable {
+public class Special extends Achetable {
 
-    public Gare(String nom, int loyer, int prix, int id) {
+    public Special(String nom, int loyer, int prix, int id) {
         super(nom, loyer, prix, id);
     }
 
-    public Gare(Achetable a) {
+    public Special(Achetable a) {
         super(a);
     }
 
-    public Gare() {
-        super("Gare_sans_nom",1,1, -1);
+    public Special() {
+        Joueur j = new Joueur();
+        super("Special_sans_nom",1,1,j,-1);
     }
     
         
     public void calculLoyer(Plateau p){
-        if(this.getProprietaire().getNom() == "Banque"){
-            this.setLoyer(0);    
-        }
-        else{
-            int h =p.nbGares(this.getProprietaire());
-            this.setLoyer(2500* h);
-        }
-        
+            this.setLoyer(400);    
     }
     
     
