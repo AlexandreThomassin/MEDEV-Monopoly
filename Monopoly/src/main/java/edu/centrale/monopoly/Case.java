@@ -20,5 +20,4 @@ public abstract class Case {
         this.id = id;
     }
     
-    
 }
