@@ -30,7 +30,8 @@ public abstract class Plateau {
         int nbGares=0;
         for(int i=0;i<cases.size();i++){
             if(cases.get(i) instanceof Gare){
-                if(cases.get(i).proprietaire.equals(joueur)){
+                Gare ca = (Gare) cases.get(i);
+                if(ca.getProprietaire().equals(joueur)){
                     nbGares++;
                 }
             }
