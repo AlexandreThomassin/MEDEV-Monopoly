@@ -31,13 +31,20 @@ public class Joueur {
      * @param plateau sur lequel le Joueur va jouer
      */
     public Joueur(Plateau plateau) {
+        this.nom = "Steve";
         this.argent = 100000;
         this.position = 0;
         this.prison = false;
         this.plateau = plateau;
     }
     
+    public Joueur() {
+        this.nom = "ND";
+        this.argent = -1;
+    }
+    
     public Joueur(Joueur joueur) {
+        this.nom = joueur.nom;
         this.argent = joueur.argent;
         this.position = joueur.position;
         this.prison = joueur.prison;
@@ -135,7 +142,8 @@ public class Joueur {
         
         for (Case c : plateau.getCases()) {
             if (c instanceof Achetable) {
-                if (c.proprietaire.equals(this) && c instanceof Gare){
+                Achetable ca = (Achetable) c;
+                if (ca.getProprietaire().equals(this) && ca instanceof Gare){
                     res ++;
                 }    
             } 
