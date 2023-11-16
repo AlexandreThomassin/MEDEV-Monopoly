@@ -31,14 +31,14 @@ public abstract class Plateau {
 
     public void tourDeJeu(){
         int casesDeplace = lanceLeDe();
-        for (int i = 0; i < joueurs.size(); i++) {
+        for (int i = 0; i < this.joueurs.size(); i++) {
             casesDeplace = lanceLeDe();
             System.out.println("D valeur: "+lanceLeDe());
-            Case nouveauCase = avance(Case.get((joueurs.get(i).getPosition())),casesDeplace);
-            joueurs.get(i).setPosition(nouveauCase.getId());
-            System.out.println("Le joueur "+joueurs.get(i).getNom()+" est en "+joueurs.get(i).getPosition());
+            Case nouveauCase = avance(this.cases.get((this.joueurs.get(i).getPosition())),casesDeplace);
+            this.joueurs.get(i).setPosition(nouveauCase.getId());
+            System.out.println("Le joueur "+this.joueurs.get(i).getNom()+" est en "+this.joueurs.get(i).getPosition());
             if(nouveauCase instanceof Achetable){
-                if(nouveauCase.proprietaire != null){
+                if(nouveauCase.getProprietaire != null){
                     if(casesDeplace%2 != 0) { // impar peut acheter
                         System.out.println("vous voulez acheter cet espace? Y/N");
                         Scanner scan = new Scanner(System.in); // Demande si veut acheter
@@ -46,17 +46,29 @@ public abstract class Plateau {
                         //verifie si veux acheter
                         if(reponseAcheter.equals("Y"||"y")) {
                             //verifie s'il y a d'argent
-                            if(joueurs.get(i).argent >= nouveauCase.prix){
-                                nouveauCase.acheter();
+                            if(this.joueurs.get(i).getArgent() >= nouveauCase.getPrix()){
+                                nouveauCase.acheter(this.joueurs.get(i));
                             } else {
                                 System.out.println("vous n'avez pas assez d'argent");
                             }
                         }
                     }
                     // sinon pas achetable (pair)
-                } else{
-                    // paiement au proprietaire
-                    joueurs.get(i).paiement(nouveauCase.getProprietaire());
+                }
+                else{
+                    //Verifier si c'est vous le proprietaire
+                    if(nouveauCase.getProprietaire() != this.joueurs.get(i)){
+                        // paiement au proprietaire
+                        if(this.joueurs.get(i).getArgent()<nouveauCase.getLoyer(){
+                            this.joueurs.get(i).paiement(nouveauCase.getProprietaire(),this.joueurs.get(i).getArgent());
+                            System.out.println("fin de jeu pour "+this.joueurs.get(i).getNom());
+                            this.joueurs.remove(i);
+                        } else{
+                            System.out.println(nouveauCase.getLoyer()+"payé pour le proprietaire");
+                            this.joueurs.get(i).paiement(nouveauCase.getProprietaire(), nouveauCase.getLoyer());
+                        }
+                    }
+                    System.out.println("tu es chez toi");
                 }
             } else {
                 //AUTRES espaces e ses fonctions especifique, il faut créer un instance of pour chaqu'un d'eux
